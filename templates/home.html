@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title> Home </title>
-</head>
+{% extends 'base.html' %}
+    
 
+{% block title %} Home {% endblock title %}
 
-<body>
+{% block content %}
 
-    {{records}}
     {% for r in records %}
         <h3> {{r.title}} </h3>
         <p> {{r.body}} </p>
         <small> {{r.created}} </small>
-        <hr>
     {% endfor %}
 
-</body>
-</html>
+{% endblock content %}
