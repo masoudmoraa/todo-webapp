@@ -8,7 +8,13 @@
 
 <body>
 
-    <h3> This is home page!!! </h3>
+    {{records}}
+    {% for r in records %}
+        <h3> {{r.title}} </h3>
+        <p> {{r.body}} </p>
+        <small> {{r.created}} </small>
+        <hr>
+    {% endfor %}
 
 </body>
 </html>

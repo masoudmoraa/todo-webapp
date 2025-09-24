@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from .models import Todo
 
 def home_page(request) :
-    return render(request, 'home.html')
+    all_records = Todo.objects.all()
+    return render(request, 'home.html', {'records' : all_records})
 
 
 def say_hello(request) :
