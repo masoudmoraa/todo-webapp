@@ -3,9 +3,14 @@ from .forms import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def user_register(request):
+    if request.user.is_authenticated:
+        messages.error(request, "You are already logged in. Redirected to the home page.", extra_tags="warning")
+        return redirect('homepage')
+    
     if request.method == "POST" :
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -22,6 +27,10 @@ def user_register(request):
 
 
 def user_login(request):
+    if request.user.is_authenticated:
+        messages.error(request, "You are already logged in. Redirected to the home page.", extra_tags="warning")
+        return redirect('homepage')
+    
     if request.method == "POST" :
         form = UserLoginForm(request.POST)
         if form.is_valid():
@@ -37,12 +46,8 @@ def user_login(request):
         form = UserLoginForm()
     return render(request, 'login.html', {"form":form})
 
-
+@login_required
 def user_logout(request):
-    if request.user.is_authenticated :
-        logout(request)
-        messages.success(request, 'User logged out successfully', extra_tags='success')
-        return redirect('homepage')
-    else :
-        messages.error(request, 'You need to login first :)', extra_tags='warning')
-        return redirect('homepage')
+    logout(request)
+    messages.success(request, 'User logged out successfully', extra_tags='success')
+    return redirect('user_login')
