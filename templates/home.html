@@ -5,14 +5,15 @@
 
 {% block content %}
 
-    <a class="btn btn-primary" href={% url "createtodo" %}> Create <a>
+    <a class="btn btn-info" href={% url "user_logout" %}> Logout <a>
     <br>
 
-    <div class="card mt-3">
-    {% for r in records %}
+    <div class="card mt-3 mb-3">
+        {% for r in records %}
         <a class="card-body" href={% url "detailtodo" r.id %}> {{r.title}} </a>
         <br>
-    {% endfor %}
+        {% endfor %}
     </div>
 
+    <a class="btn btn-primary" href={% url "createtodo" %}> Create <a>
 {% endblock content %}
