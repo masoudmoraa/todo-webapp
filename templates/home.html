@@ -1,14 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
     
 
 {% block title %} Home {% endblock title %}
 
 {% block content %}
 
+    <div class="card">
     {% for r in records %}
-        <h3> {{r.title}} </h3>
-        <p> {{r.body}} </p>
-        <small> {{r.created}} </small>
+        <a class="card-body" href={% url "detailpage" r.id %}> {{r.title}} </a>
+        <br>
     {% endfor %}
+    </div>
 
 {% endblock content %}
