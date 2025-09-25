@@ -5,7 +5,10 @@
 
 {% block content %}
 
-    <div class="card">
+    <a class="btn btn-primary" href={% url "createtodo" %}> Create <a>
+    <br>
+
+    <div class="card mt-3">
     {% for r in records %}
         <a class="card-body" href={% url "detailpage" r.id %}> {{r.title}} </a>
         <br>
