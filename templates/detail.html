@@ -10,4 +10,5 @@
     <p> {{ r.body }} </p>
 
     <a class="btn btn-danger" href={% url "deletetodo" r.id %}> delete </a>
+    <a class="btn btn-warning" href={% url "updatetodo" r.id %}> update </a>
 {% endblock content %}

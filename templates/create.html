@@ -3,11 +3,9 @@
 {% block title %} New record {% endblock title %}
 
 {% block content %} 
-    <h2> hello from create page </h2>
-
     <form action="" method="post" novalidate>
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Create">
+        <input type="submit" value="Create" class="btn btn-primary">
     </form>
 {% endblock content %}

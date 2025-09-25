@@ -10,7 +10,7 @@
 
     <div class="card mt-3">
     {% for r in records %}
-        <a class="card-body" href={% url "detailpage" r.id %}> {{r.title}} </a>
+        <a class="card-body" href={% url "detailtodo" r.id %}> {{r.title}} </a>
         <br>
     {% endfor %}
     </div>
