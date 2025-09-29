@@ -6,8 +6,7 @@ Follow these steps to run the project locally:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/masoudmoraa/todo-app.git
-cd todo-app
+git clone https://github.com/masoudmoraa/todo-webapp.git
 ```
 
 ### 2. Create a Django project
